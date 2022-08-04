@@ -1,0 +1,51 @@
+[
+  {
+    "objectID": "spiral.html",
+    "href": "spiral.html",
+    "title": "Spiral",
+    "section": "",
+    "text": "phase\nradius of spiral\n\n\n\n\n\n phi (B:float, v:float, t:float, flag_out:int, t_max:float,\n      spiral_count:int)\n\ncompute phi and radius\n\n\n\n\nType\nDetails\n\n\n\n\nB\nfloat\nspiral arm distance\n\n\nv\nfloat\nspiral angular velocity\n\n\nt\nfloat\ntime\n\n\nflag_out\nint\nindicated if spiral goes out- or inwards\n\n\nt_max\nfloat\ntime for one outward spiral_count\n\n\nspiral_count\nint\ncounts the number of performed spirals"
+  },
+  {
+    "objectID": "spiral.html#phase-of-spiral",
+    "href": "spiral.html#phase-of-spiral",
+    "title": "Spiral",
+    "section": "Phase of spiral",
+    "text": "Phase of spiral\nThe pase of the spiral has to grow and shrink for in and out going spirals as shown in Figure 1.\n\n\n\n\n\nFigure 1: ?(caption)"
+  },
+  {
+    "objectID": "spiral.html#lets-turn-this-into-a-class",
+    "href": "spiral.html#lets-turn-this-into-a-class",
+    "title": "Spiral",
+    "section": "Lets turn this into a class",
+    "text": "Lets turn this into a class\n\n\nDutPatLoop\n\n DutPatLoop ()\n\nClass to implement DUT PAT loop for STB\nSo we create a method which is the same function as before\n\n\nDutPatLoop.phi_method\n\n DutPatLoop.phi_method (B:float, v:float, r_max:float, t:float)\n\ncompute phi and radius\n\n\n\n\nType\nDetails\n\n\n\n\nB\nfloat\nspiral arm distance\n\n\nv\nfloat\nspiral angular velocity\n\n\nr_max\nfloat\nmax radius in rad\n\n\nt\nfloat\ntime\n\n\n\nSpiral parameters\n\nv = 0.11 # velocity in rad/s\nB = 8.6e-6 # spiral arm distance\nr_max=800e-6 # max radius in rad\nt_max=3.14*(r_max)**2/(B*v) # calculate resulting spiral duration\n\n\nt_max\n\n2.12431289640592\n\n\ninstantiate the class\ndut_pat_loop=DutPatLoop()"
+  },
+  {
+    "objectID": "spiral.html#plots-of-the-spiral-phase",
+    "href": "spiral.html#plots-of-the-spiral-phase",
+    "title": "Spiral",
+    "section": "Plots of the spiral phase",
+    "text": "Plots of the spiral phase\nThe plot ought to be the same as in Figure 1.\nCheck that the method phi_methodgives the same result as the function phi\n\nassert phi_list_method==phi_list"
+  },
+  {
+    "objectID": "spiral.html#extract-method",
+    "href": "spiral.html#extract-method",
+    "title": "Spiral",
+    "section": "Extract method",
+    "text": "Extract method\nusing @patch from fastcore.utils one can define methods outside the class code which gives:\n\nmore flexibility in adding markdown describing what the method will do\n\nadds automatically a description to the method\n\nAdd spiral method\n\n\nDutPatLoop.phi_method_extract\n\n DutPatLoop.phi_method_extract (B:float, v:float, r_max:float, t:float)\n\ncompute phi and radius\n\n\n\n\nType\nDetails\n\n\n\n\nB\nfloat\nspiral arm distance\n\n\nv\nfloat\nspiral angular velocity\n\n\nr_max\nfloat\nmax radius in rad\n\n\nt\nfloat\ntime"
+  },
+  {
+    "objectID": "spiral.html#plots-of-the-spiral-phase-1",
+    "href": "spiral.html#plots-of-the-spiral-phase-1",
+    "title": "Spiral",
+    "section": "Plots of the spiral phase",
+    "text": "Plots of the spiral phase\nThe plot ought to be the same as in Figure 1.\n\n\n\n\n\nFigure 2: ?(caption)"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "nbdevFirstTry",
+    "section": "",
+    "text": "Create a spiral that keeps directions when it turns at - max radius - min radius (0)\n\nThe functionality is implemented three times\n\nas function\nas method of a class\n\ndefined inside the class\ndefined outside the class defintion using @patch decorator of fastcore.utilis"
+  }
+]
