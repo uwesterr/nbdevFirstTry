@@ -8,10 +8,6 @@ documentation.
 
 `pip install nbdevFirstTry`
 
-## How to use
-
-Fill me in please! Don’t forget code examples:
-
 ## Spiral
 
 > Create a spiral that keeps directions when it turns at - max radius -
