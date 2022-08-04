@@ -64,35 +64,39 @@ class   DutPatLoop:
         """
         self.B = 8.6e-6 # spiral arm distance
         self.v = 0.11 # spiral angular velocity
+        self.flag_out=1
+        self.t_max=0
+        self.new_spiral=1
+        self.spiral_count=0
         
     def phi_method(self,
             B:float, # spiral arm distance
             v:float, # spiral angular velocity
-            t:float, # time
-            flag_out:int, # indicated if spiral goes out- or inwards
-            t_max:float, # time for one outward spiral_count
-            spiral_count:int ):# counts the number of performed spirals
+            r_max:float, # max radius in rad
+            t:float): # time
         "compute phi and radius"
-        if flag_out:
-            phi1 = np.sqrt(4*np.pi/B*v*(t-t_max*(spiral_count)))
+        if self.new_spiral:
+            self.t_max=3.14*(r_max)**2/(B*v) # calculate resulting spiral duration
+        if self.flag_out:
+            phi1 = np.sqrt(4*np.pi/B*v*(t-self.t_max*(self.spiral_count)))
 
             r=B*phi1/(2*np.pi)
         # print(phi1)
             if r >= 800e-6:
-                flag_out=0
-                spiral_count=spiral_count+1
+                self.flag_out=0
+                self.spiral_count=self.spiral_count+1
                 #t_max=t
         else:
-            if ((4*np.pi/B*v*((spiral_count+1)*t_max-t))>=0):
-                phi1 = np.sqrt(4*np.pi/B*v*((spiral_count+1)*t_max-t))
+            if ((4*np.pi/B*v*((self.spiral_count+1)*self.t_max-t))>=0):
+                phi1 = np.sqrt(4*np.pi/B*v*((self.spiral_count+1)*self.t_max-t))
                 
             else:
                 phi1=0.0
             r=B*phi1/(2*np.pi)
             if r <= 5e-6:
-                flag_out=1  
-                spiral_count=spiral_count+1  
-        return phi1, flag_out, r, spiral_count
+                self.flag_out=1  
+                self.spiral_count=self.spiral_count+1  
+        return phi1, r
 
-# %% ../00_spiral.ipynb 18
+# %% ../00_spiral.ipynb 19
 dut_pat_loop=DutPatLoop()
