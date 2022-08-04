@@ -17,14 +17,11 @@ Fill me in please! Don’t forget code examples:
 > Create a spiral that keeps directions when it turns at - max radius -
 > min radius (0)
 
-``` python
-1+999
-```
+The functionality is implemented three times
 
-    1000
-
-``` python
-5/7
-```
-
-jsut text
+-   as function
+-   as method of a class
+    -   defined inside the class
+    -   defined outside the class defintion using @patch decorator of
+        fastcore.utilis
+-   
